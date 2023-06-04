@@ -2,25 +2,12 @@
 =======
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Development 
+1. `asdf install ruby 3.2.2`
+2. `asdf shell ruby 3.2.2`
+3. `nvm install 18`
+4. `nvm use 18`
+5. `yarn`
+6. `gem install bundler:2.4.10`
+7. `bundle install`
+8. `bin/dev` <- runs both frontend and backend applications!
