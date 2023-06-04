@@ -9,3 +9,4 @@
 7. `gem install bundler:2.4.10`
 8. `bundle install`
 9. `bin/dev` <- runs both frontend and backend applications!
+10. `http://localhost:3000`
