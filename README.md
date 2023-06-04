@@ -1,8 +1,5 @@
 # CapraCove
-=======
-# README
-
-# Development 
+## Development 
 1. `asdf install ruby 3.2.2`
 2. `asdf shell ruby 3.2.2`
 3. `nvm install 18`
