@@ -51,9 +51,7 @@ jobs:
         run: yarn install --pure-lockfile
 
       - name: Initialize database
-        run: |
-          bundle exec rails db:create
-          bundle exec rails db:migrate
+        run: bundle exec rails db:setup
 
       - name: Build and run test
         run: bundle exec rake
