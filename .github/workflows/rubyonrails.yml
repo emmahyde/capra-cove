@@ -48,8 +48,7 @@ jobs:
           cache: yarn
 
       - name: Install packages
-        run: |
-          yarn install --pure-lockfile
+        run: yarn install --pure-lockfile
 
       - name: Build and run test
         run: |
@@ -75,8 +74,7 @@ jobs:
           cache: yarn
 
       - name: Install packages
-        run: |
-            yarn install --pure-lockfile
+        run: yarn install --pure-lockfile
 
       # Add or replace any other lints here
       - name: Security audit dependencies
