@@ -12,7 +12,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  test:
+  Test:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -57,7 +57,7 @@ jobs:
           bundle exec rails db:migrate
           bundle exec rake
 
-  lint:
+  Lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
