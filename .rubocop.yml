@@ -1,4 +1,5 @@
 AllCops:
+  NewCops: enable
   Exclude:
     - db/migrate/**/*
     - db/schema.rb
@@ -9,6 +10,7 @@ AllCops:
     - app/admin/**/*
     - app/channels/**/*
     - app/jobs/**/*
+    - app/javascript/**/*
     - node_modules/**/*
     - Gemfile
     - Rakefile
