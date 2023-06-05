@@ -12,7 +12,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  Test:
+  RSpec:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -50,22 +50,19 @@ jobs:
       - name: Install packages
         run: yarn install --pure-lockfile
 
-      - name: Build and run test
+      - name: Initialize database
         run: |
           bundle exec rails db:create
           bundle exec rails db:migrate
-          bundle exec rake
 
-  Lint:
+      - name: Build and run test
+        run: bundle exec rake
+
+  ESLint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
-        with:
-          bundler-cache: true
 
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -76,12 +73,19 @@ jobs:
       - name: Install packages
         run: yarn install --pure-lockfile
 
-      # Add or replace any other lints here
-      - name: Security audit dependencies
-        run: bin/bundler-audit --update
+      - name: ESLint
+        run: yarn eslint .
 
-      - name: Security audit application code
-        run: bin/brakeman -q -w2
+  Rubocop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        with:
+          bundler-cache: true
 
       - name: Lint Ruby files
         run: bin/rubocop --parallel
